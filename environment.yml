@@ -4,7 +4,9 @@ channels:
 dependencies:
   - python=3.10
   - black
+  - dill
   - flake8
+  - flask
   - isort
   - pip
   - typer
@@ -17,6 +19,8 @@ dependencies:
   - numpy
   - pandas
   - scikit-learn
+  - seaborn
+  - xgboost
   - pip:
     - python-dotenv
     - -e .

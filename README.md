@@ -1,61 +1,70 @@
-# src
+# Germany Apartment Rent Prediction
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+Machine learning model to predict apartment rents in Germany.
 
-Modular machine learning appraoch to predict apartment rent in Germany
+Highlights:
+1. Thorough data exploration and insights
+2. Structured data processing following modular coding principles
+3. Integration of MLOps practices (Process logging, training and testing pipelines)
+4. Deployment using simple Flask application
+
 
 ## Project Organization
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
+├── analysis           
+│   ├── EDA.ipynb                                   <- Exploratory data analysis (modular approach)
+│   └── analysis_src                                <- Source code for packages used during exploratory data analysis
+│       ├── __init__.py 
+│       ├── basic_data_inspection.py
+│       ├── bivariate_analysis.py
+│       ├── missing_values_analysis.py
+│       ├── multivariate_analysis.py
+│       └── univariate_analysis.py
+│
+├── artifacts                   
+│   └── preprocessor.pkl                            <- Preporcessor used for data transformation for training and test dataset
+│
 ├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
+│   ├── extracted                                   <- Data extracted from raw data files (incase of zipped raw data)
+│   └── raw                                         <- The original, immutable data dump
+│       └── healthcare-dataset-stroke-data.csv
 │
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
+├── logs                                            <- Process logs for model training and predictions
 │
-├── models             <- Trained and serialized models, model predictions, or model summaries
+├── models                                          
+│   └── best_tuned_model.pkl                        <- Hyperparameter-tuned model used for prediction
 │
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
+├── src                                             <- Source code for use in this project (modular approach)
+│   │
+│   ├── components                                  <- Code for packages used during model training
+│   │   ├── __init__.py 
+│   │   ├── data_ingestion.py                
+│   │   ├── data_splitter.py 
+│   │   ├── data_transformation.py 
+│   │   └── model_trainer.py
+│   │
+│   ├── pipeline                
+│   │   ├── __init__.py 
+│   │   ├── predict_pipeline.py                     <- Code to run model inference with trained models          
+│   │   └── train_pipeline.py                       <- Code to test classification models and hyperparameter tune best fitted model
+│   │
+│   ├── __init__.py                                 <- Makes src a Python module
+│   ├── config.py                                   <- Store useful variables and configuration
+│   ├── logging_config.py                           <- Store useful variables and configuration for logging
+│   └── utils.py                                    <- Scripts to save or load objects (e.g., preprocessor, trained model)
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         src and configuration for tools like black
+├── templates                                       <- HTML templates for FLASK application
+│   ├── home.html                           
+│   └── index.html                                    
 │
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── src   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+├── app.py                                          <- Simple Flask application that allows users to predict stroke for custom data
+├── environment.yml                                 <- Environment file for reproducing the analysis environment
+├── Makefile                                        <- Makefile with convenience commands like `make requirements`
+├── pyproject.toml                                  <- Project configuration file with package metadata for 
+│                                                   src and configuration for tools like black
+├── README.md                                       <- The top-level README for developers using this project.
+└── setup.cfg                                       <- Configuration file for flake8
 ```
 
 --------
-
