@@ -5,7 +5,7 @@ Machine learning model to predict apartment rents in Germany.
 Highlights:
 1. Thorough data exploration and insights
 2. Structured data processing following modular coding principles
-3. Integration of MLOps practices (Process logging, training and testing pipelines)
+3. Integration of MLOps practices (Process logging, training and testing pipelines, experiment tracking with MLflow)
 4. Deployment using simple Flask application
 
 
@@ -28,7 +28,7 @@ Highlights:
 ├── data
 │   ├── extracted                                   <- Data extracted from raw data files (incase of zipped raw data)
 │   └── raw                                         <- The original, immutable data dump
-│       └── healthcare-dataset-stroke-data.csv
+│       └── immo_data.csv
 │
 ├── logs                                            <- Process logs for model training and predictions
 │
@@ -58,7 +58,7 @@ Highlights:
 │   ├── home.html                           
 │   └── index.html                                    
 │
-├── app.py                                          <- Simple Flask application that allows users to predict stroke for custom data
+├── app.py                                          <- Simple Flask application that allows users to predict apartment rent for custom data
 ├── environment.yml                                 <- Environment file for reproducing the analysis environment
 ├── Makefile                                        <- Makefile with convenience commands like `make requirements`
 ├── pyproject.toml                                  <- Project configuration file with package metadata for 

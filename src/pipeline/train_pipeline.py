@@ -1,5 +1,5 @@
 from src.components.data_ingestion import DataIngestorFactory
-from src.components.data_splitter import DataSplitter, StratifiedTrainTestSplitStrategy
+from src.components.data_splitter import DataSplitter, SimpleTrainTestSplitStrategy
 from src.components.data_transformation import SimpleDataTransformation
 from src.components.model_trainer import HyperParameterTuned_ModelBuilder
 
@@ -8,13 +8,13 @@ def ml_pipeline():
     """Define an end-to-end machine learning pipeline."""
 
     # Data Ingestion Step
-    df = DataIngestorFactory.data_ingestor(
-        "data/raw/healthcare-dataset-stroke-data.csv"
-    )
+    df = DataIngestorFactory.data_ingestor("../../data/raw/immo_data.csv.zip")
 
     # Data Splitting Step
-    data_splitter = DataSplitter(StratifiedTrainTestSplitStrategy())
-    X_train, X_test, y_train, y_test = data_splitter.split(df, target_column="stroke")
+    data_splitter = DataSplitter(SimpleTrainTestSplitStrategy())
+    X_train, X_test, y_train, y_test = data_splitter.split(
+        df, target_column="totalRent"
+    )
 
     # Data Transformation Step
     data_transformer = SimpleDataTransformation()

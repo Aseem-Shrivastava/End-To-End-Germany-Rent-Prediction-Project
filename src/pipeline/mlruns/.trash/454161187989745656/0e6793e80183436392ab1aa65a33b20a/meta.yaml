@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/aseemshrivastava/Documents/Coding/Project%20Repositories/germany_apartment_rent_prediction/src/pipeline/mlruns/454161187989745656/0e6793e80183436392ab1aa65a33b20a/artifacts
+deleted_time: 1739898144510
+end_time: 1739897034256
+entry_point_name: ''
+experiment_id: '454161187989745656'
+lifecycle_stage: deleted
+run_id: 0e6793e80183436392ab1aa65a33b20a
+run_name: Ridge Regression
+run_uuid: 0e6793e80183436392ab1aa65a33b20a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739897034242
+status: 3
+tags: []
+user_id: aseemshrivastava

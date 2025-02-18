@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/aseemshrivastava/Documents/Coding/Project%20Repositories/germany_apartment_rent_prediction/src/pipeline/mlruns/454161187989745656/8e4fa88f2783484ebfa9ab3499d76134/artifacts
+deleted_time: 1739898144510
+end_time: 1739897034236
+entry_point_name: ''
+experiment_id: '454161187989745656'
+lifecycle_stage: deleted
+run_id: 8e4fa88f2783484ebfa9ab3499d76134
+run_name: Lasso Regression
+run_uuid: 8e4fa88f2783484ebfa9ab3499d76134
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739897034223
+status: 3
+tags: []
+user_id: aseemshrivastava

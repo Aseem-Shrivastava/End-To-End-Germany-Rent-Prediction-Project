@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/aseemshrivastava/Documents/Coding/Project%20Repositories/germany_apartment_rent_prediction/src/pipeline/mlruns/502335177538333383/8a70cbd5f2284aa38ebe5a59fdd46b82/artifacts
+deleted_time: 1739898148765
+end_time: 1739897274279
+entry_point_name: ''
+experiment_id: '502335177538333383'
+lifecycle_stage: deleted
+run_id: 8a70cbd5f2284aa38ebe5a59fdd46b82
+run_name: exultant-fish-735
+run_uuid: 8a70cbd5f2284aa38ebe5a59fdd46b82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739897272073
+status: 3
+tags: []
+user_id: aseemshrivastava

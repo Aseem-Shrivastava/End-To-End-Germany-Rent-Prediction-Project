@@ -29,7 +29,9 @@ class PredictPipeline:
 
             data_transformed = preprocessor.transform(df)
             feature_names = preprocessor.get_feature_names_out()
-            data_transformed = pd.DataFrame(data_transformed, columns=feature_names)
+            data_transformed = pd.DataFrame(
+                data_transformed.toarray(), columns=feature_names
+            )
 
             preds = model.predict(data_transformed)
             logger.success("Prediction completed.")

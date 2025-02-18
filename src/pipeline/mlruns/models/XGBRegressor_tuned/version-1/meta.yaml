@@ -1,0 +1,17 @@
+aliases: []
+creation_timestamp: 1739899164822
+current_stage: None
+description: This is an XGB Regressor model which was hyperparameter-tuned and optimised
+  from mean absolute error.
+last_updated_timestamp: 1739899503644
+name: XGBRegressor_tuned
+run_id: c7c06341298c46e3b44ee63d32764123
+run_link: ''
+source: mlflow-artifacts:/316100900204166523/c7c06341298c46e3b44ee63d32764123/artifacts/hyperparameter-tuned
+  model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/316100900204166523/c7c06341298c46e3b44ee63d32764123/artifacts/hyperparameter-tuned
+  model
+user_id: null
+version: 1

@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/316100900204166523
+creation_time: 1739898643819
+experiment_id: '316100900204166523'
+last_update_time: 1739898643819
+lifecycle_stage: active
+name: Hyperparameter-Tuned Model

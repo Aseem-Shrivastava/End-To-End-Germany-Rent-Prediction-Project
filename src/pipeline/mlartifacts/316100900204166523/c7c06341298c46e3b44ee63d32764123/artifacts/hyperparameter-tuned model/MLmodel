@@ -1,0 +1,20 @@
+artifact_path: hyperparameter-tuned model
+flavors:
+  python_function:
+    data: model.xgb
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.10.16
+  xgboost:
+    code: null
+    data: model.xgb
+    model_class: xgboost.sklearn.XGBRegressor
+    model_format: xgb
+    xgb_version: 2.1.4
+mlflow_version: 2.20.2
+model_size_bytes: 6000300
+model_uuid: 9aa849922cce4781b9c0c0be986b0727
+run_id: c7c06341298c46e3b44ee63d32764123
+utc_time_created: '2025-02-18 17:10:43.849627'

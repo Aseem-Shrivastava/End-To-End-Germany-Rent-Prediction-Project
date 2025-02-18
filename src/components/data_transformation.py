@@ -32,17 +32,21 @@ class SimpleDataTransformation(DataTransformation):
     def apply_transformation(self, X_train: pd.DataFrame, X_test: pd.DataFrame):
         logger.info("X_train and X_test dataframes transformation started...")
 
+        bool_columns = X_train.select_dtypes(include=["bool"]).columns.tolist()
+
         numerical_continuous = X_train.select_dtypes(
             include=["float64"]
         ).columns.tolist()
-        numerical_discrete = X_train.select_dtypes(include=["int64"]).columns.tolist()
+        numerical_discrete = (
+            X_train.select_dtypes(include=["int64"]).columns.tolist() + bool_columns
+        )
         categorical_columns = X_train.select_dtypes(
             include=["object", "category"]
         ).columns.tolist()
 
         numerical_continuous_transformer = Pipeline(
             steps=[
-                ("imputer", SimpleImputer(strategy="mean")),
+                ("imputer", SimpleImputer(strategy="median")),
                 ("scaler", StandardScaler()),
             ]
         )
@@ -77,10 +81,10 @@ class SimpleDataTransformation(DataTransformation):
         feature_names = preprocessor.get_feature_names_out()
 
         X_train_transformed = pd.DataFrame(
-            X_train_transformed, columns=feature_names, index=X_train.index
+            X_train_transformed.toarray(), columns=feature_names, index=X_train.index
         )
         X_test_transformed = pd.DataFrame(
-            X_test_transformed, columns=feature_names, index=X_test.index
+            X_test_transformed.toarray(), columns=feature_names, index=X_test.index
         )
 
         logger.success("X_train and X_test dataframes transformation complete")

@@ -22,5 +22,6 @@ dependencies:
   - seaborn
   - xgboost
   - pip:
+    - mlflow
     - python-dotenv
     - -e .

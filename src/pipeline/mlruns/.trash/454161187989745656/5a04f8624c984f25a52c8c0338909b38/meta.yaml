@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/aseemshrivastava/Documents/Coding/Project%20Repositories/germany_apartment_rent_prediction/src/pipeline/mlruns/454161187989745656/5a04f8624c984f25a52c8c0338909b38/artifacts
+deleted_time: 1739898144510
+end_time: 1739897034217
+entry_point_name: ''
+experiment_id: '454161187989745656'
+lifecycle_stage: deleted
+run_id: 5a04f8624c984f25a52c8c0338909b38
+run_name: Linear Regression
+run_uuid: 5a04f8624c984f25a52c8c0338909b38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739897034184
+status: 3
+tags: []
+user_id: aseemshrivastava
