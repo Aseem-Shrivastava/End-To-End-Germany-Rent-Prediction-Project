@@ -28,10 +28,10 @@ class PredictPipeline:
             preprocessor = load_object(file_path=preprocessor_path)
 
             data_transformed = preprocessor.transform(df)
-            feature_names = preprocessor.get_feature_names_out()
-            data_transformed = pd.DataFrame(
-                data_transformed.toarray(), columns=feature_names
-            )
+
+            # Convert to array only if sparse matrix
+            if hasattr(data_transformed, "toarray"):
+                data_transformed = data_transformed.toarray()
 
             preds = model.predict(data_transformed)
             logger.success("Prediction completed.")
@@ -44,41 +44,59 @@ class PredictPipeline:
 class CustomData:
     def __init__(
         self,
-        gender: str,
-        age: float,
-        hypertension: int,
-        heart_disease: int,
-        ever_married: str,
-        work_type: str,
-        residence_type: str,
-        avg_glucose_level: float,
-        bmi: float,
-        smoking_status: str,
+        regio2: str,
+        typeOfFlat: str,
+        livingSpace: float,
+        noRooms: int,
+        hasKitchen: int,
+        cellar: int,
+        balcony: int,
+        lift: int,
+        garden: int,
+        floor: int,
+        heatingType: str,
+        firingTypes: str,
+        newlyConst: int,
+        yearConstructed: int,
+        yearConstructedRange: int,
+        condition: str,
     ):
-        self.gender = gender
-        self.age = age
-        self.hypertension = hypertension
-        self.heart_disease = heart_disease
-        self.ever_married = ever_married
-        self.work_type = work_type
-        self.residence_type = residence_type
-        self.avg_glucose_level = avg_glucose_level
-        self.bmi = bmi
-        self.smoking_status = smoking_status
+        self.regio2 = regio2
+        self.heatingType = heatingType
+        self.newlyConst = newlyConst
+        self.balcony = balcony
+        self.yearConstructed = yearConstructed
+        self.firingTypes = firingTypes
+        self.hasKitchen = hasKitchen
+        self.cellar = cellar
+        self.yearConstructedRange = yearConstructedRange
+        self.livingSpace = livingSpace
+        self.condition = condition
+        self.lift = lift
+        self.typeOfFlat = typeOfFlat
+        self.noRooms = noRooms
+        self.floor = floor
+        self.garden = garden
 
     def get_data_as_data_frame(self):
         try:
             custom_data_input_dict = {
-                "gender": [self.gender],
-                "age": [self.age],
-                "hypertension": [self.hypertension],
-                "heart_disease": [self.heart_disease],
-                "ever_married": [self.ever_married],
-                "work_type": [self.work_type],
-                "Residence_type": [self.residence_type],
-                "avg_glucose_level": [self.avg_glucose_level],
-                "bmi": [self.bmi],
-                "smoking_status": [self.smoking_status],
+                "regio2": [self.regio2],
+                "typeOfFlat": [self.typeOfFlat],
+                "livingSpace": [self.livingSpace],
+                "noRooms": [self.noRooms],
+                "hasKitchen": [self.hasKitchen],
+                "cellar": [self.cellar],
+                "balcony": [self.balcony],
+                "lift": [self.lift],
+                "garden": [self.garden],
+                "floor": [self.floor],
+                "heatingType": [self.heatingType],
+                "firingTypes": [self.firingTypes],
+                "newlyConst": [self.newlyConst],
+                "yearConstructed": [self.yearConstructed],
+                "yearConstructedRange": [self.yearConstructedRange],
+                "condition": [self.condition],
             }
 
             return pd.DataFrame(custom_data_input_dict)

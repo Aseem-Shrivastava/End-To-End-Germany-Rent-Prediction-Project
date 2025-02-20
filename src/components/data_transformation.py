@@ -33,6 +33,9 @@ class SimpleDataTransformation(DataTransformation):
         logger.info("X_train and X_test dataframes transformation started...")
 
         bool_columns = X_train.select_dtypes(include=["bool"]).columns.tolist()
+        for col in bool_columns:
+            X_train[col] = X_train[col].astype("Int64")
+            X_test[col] = X_test[col].astype("Int64")
 
         numerical_continuous = X_train.select_dtypes(
             include=["float64"]

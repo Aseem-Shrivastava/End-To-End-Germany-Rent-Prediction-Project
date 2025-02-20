@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/aseemshrivastava/Documents/Coding/Project%20Repositories/germany_apartment_rent_prediction/src/pipeline/mlruns/707635086029901210/8b1212aadac5463e944ebfabb6411c20/artifacts
+end_time: 1739973735919
+entry_point_name: ''
+experiment_id: '707635086029901210'
+lifecycle_stage: active
+run_id: 8b1212aadac5463e944ebfabb6411c20
+run_name: XGBRegressor
+run_uuid: 8b1212aadac5463e944ebfabb6411c20
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1739973735900
+status: 3
+tags: []
+user_id: aseemshrivastava

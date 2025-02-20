@@ -49,6 +49,9 @@ class SimpleTrainTestSplitStrategy(DataSplittingStrategy):
                 "picturecount",
                 "geo_bln",
                 "date",
+                "baseRentRange",
+                "baseRent",
+                "serviceCharge",
             ]
         )
 
@@ -110,6 +113,9 @@ class StratifiedTrainTestSplitStrategy(DataSplittingStrategy):
                 "picturecount",
                 "geo_bln",
                 "date",
+                "baseRentRange",
+                "baseRent",
+                "serviceCharge",
             ]
         )
 

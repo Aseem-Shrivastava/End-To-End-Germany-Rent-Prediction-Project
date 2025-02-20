@@ -1,0 +1,16 @@
+aliases: []
+creation_timestamp: 1739973990615
+current_stage: None
+description: ''
+last_updated_timestamp: 1739973990615
+name: XGBRegressor_tuned
+run_id: 44d29e8f41c545ddb32bb6d14ba02021
+run_link: ''
+source: mlflow-artifacts:/316100900204166523/44d29e8f41c545ddb32bb6d14ba02021/artifacts/hyperparameter-tuned
+  model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/316100900204166523/44d29e8f41c545ddb32bb6d14ba02021/artifacts/hyperparameter-tuned
+  model
+user_id: null
+version: 2

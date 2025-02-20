@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Rent Prediction in Germany</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .mb-3 {
+            margin-bottom: 15px;
+        }
+        .form-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .prediction {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Apartment Rent Predictor</h1>
+        <h2>Enter Apartment Details</h2>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <!-- Region -->
+            <div class="mb-3">
+                <label class="form-label">Region</label>
+                <select class="form-select" id="regio2" name="regio2" required>
+                    <option selected disabled>Select a Region</option>
+                    <option value="Dortmund">Dortmund</option>
+                    <option>Rhein_Pfalz_Kreis</option>
+                    <option>Dresden</option>
+                    <option>Mittelsachsen_Kreis</option>
+                    <option>Bremen</option>
+                    <option>Schleswig_Flensburg_Kreis</option>
+                    <option>Emmendingen_Kreis</option>
+                    <option>Gelsenkirchen</option>
+                    <option>Chemnitz</option>
+                    <option>Südliche_Weinstraße_Kreis</option>
+                    <option>Hamm</option>
+                    <option>Weimar</option>
+                    <option>Main_Kinzig_Kreis</option>
+                    <option>Duisburg</option>
+                    <option>Göttingen_Kreis</option>
+                    <option>Neumünster</option>
+                    <option>Stuttgart</option>
+                    <option>Leipzig</option>
+                    <option>München</option>
+                    <option>Hamburg</option>
+                    <option>Braunschweig</option>
+                    <option>Esslingen_Kreis</option>
+                    <option>Magdeburg</option>
+                    <option>Schwerin</option>
+                    <option>Passau</option>
+                    <option>Mettmann_Kreis</option>
+                    <option>Vogtlandkreis</option>
+                    <option>Groß_Gerau_Kreis</option>
+                    <option>Sächsische_Schweiz_Osterzgebirge_Kreis</option>
+                    <option>Görlitz_Kreis</option>
+                    <option>Rheinisch_Bergischer_Kreis</option>
+                    <option>Essen</option>
+                    <option>Meißen_Kreis</option>
+                    <option>Mannheim</option>
+                    <option>Berlin</option>
+                    <option>Frankfurt_am_Main</option>
+                    <option>Wiesbaden</option>
+                    <option>Köln</option>
+                    <option>Heidelberg</option>
+                    <option>Nürnberg</option>
+                    <option>Karlsruhe</option>
+                    <option>Bochum</option>
+                    <option>Bonn</option>
+                    <option>Hannover</option>
+                    <option>Regensburg</option>
+                    <option>Potsdam</option>
+                    <option>Ulm</option>
+                    <option>Erfurt</option>
+                    <option>Freiburg_im_Breisgau</option>
+                    <option>Rostock</option>
+                    <option>Saarbrücken</option>
+                    <option>Schweinfurt</option>
+                    <option>Weimar</option>
+                    <option>Memmingen</option>
+                    <option>Worms</option>
+                    <option>Würzburg</option>
+                    <option>Landshut</option>
+                    <option>Lübeck</option>
+                    <option>Osnabrück</option>
+                    <option>Oldenburg</option>
+                    <option>Flensburg</option>
+                    <option>Bayreuth</option>
+                    <option>Jena</option>
+                    <option>Stralsund</option>
+                    <option>Salzgitter</option>
+                    <option>Neubrandenburg</option>
+                    <option>Speyer</option>
+                    <option>Neustadt_an_der_Weinstraße</option>
+                    <option>Kaiserslautern</option>
+                    <option>Kempten_Allgäu</option>
+                    <option>Greifswald</option>
+                    <option>Ravensburg_Kreis</option>
+                </select>
+            </div>
+
+            <!-- Type of Flat -->
+            <div class="mb-3">
+                <label class="form-label">Type of Flat</label>
+                <select class="form-select" id="typeOfFlat" name="typeOfFlat" required>
+                    <option class="placeholder" selected disabled value="">Select Flat Type</option>
+                    <option value="ground_floor">Ground Floor</option>
+                    <option value="raised_ground_floor">Raised Ground Floor</option>
+                    <option value="roof_storey">Roof Storey</option>
+                    <option value="terraced_flat">Terraced Flat</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="half_basement">Half Basement</option>
+                    <option value="maisonette">Maisonette</option>
+                    <option value="penthouse">Penthouse</option>
+                    <option value="loft">Loft</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <!-- Living Space -->
+            <div class="mb-3">
+                <label class="form-label">Living Space (sqm)</label>
+                <input class="form-control" type="number" name="livingSpace" min="0" step="0.1" required />
+            </div>
+
+            <!-- Number of Rooms -->
+            <div class="mb-3">
+                <label class="form-label">Number of Rooms</label>
+                <input class="form-control" type="number" name="noRooms" min="1" required />
+            </div>
+
+            <!-- Features -->
+            <div class="mb-3">
+                <label class="form-label">Features</label>
+                
+                <input type="hidden" name="hasKitchen" value="0">
+                <input type="checkbox" name="hasKitchen" value="1"> Kitchen
+                
+                <input type="hidden" name="cellar" value="0">
+                <input type="checkbox" name="cellar" value="1"> Cellar
+                
+                <input type="hidden" name="balcony" value="0">
+                <input type="checkbox" name="balcony" value="1"> Balcony
+                
+                <input type="hidden" name="lift" value="0">
+                <input type="checkbox" name="lift" value="1"> Lift
+                
+                <input type="hidden" name="garden" value="0">
+                <input type="checkbox" name="garden" value="1"> Garden
+            </div>
+
+            <!-- Floor -->
+            <div class="mb-3">
+                <label class="form-label">Floor</label>
+                <input class="form-control" type="number" name="floor" min="0" required />
+            </div>
+
+            <!-- Heating Type -->
+            <div class="mb-3">
+                <label class="form-label">Heating Type</label>
+                <select class="form-control" name="heatingType" required>
+                    <option class="placeholder" selected disabled value="">Select Heating Type</option>
+                    <option value="central_heating">Central Heating Floor</option>
+                    <option value="self_contained_central_heating">Self Contained Central Heating</option>
+                    <option value="floor_heating">Floor Heating</option>
+                    <option value="district_heating">District Heating</option>
+                    <option value="gas_heating">Gas Heating</option>
+                    <option value="oil_heating">Oil Heating</option>
+                    <option value="wood_pellet_heating">Wood Pellet Heating</option>
+                    <option value="electric_heating">Electric Heating</option>
+                    <option value="solar_heating">Solar Heating</option>
+                </select>
+            </div>
+
+            <!-- Firing Type -->
+            <div class="mb-3">
+                <label class="form-label">Firing Type</label>
+                <select class="form-control" name="firingTypes" required>
+                    <option class="placeholder" selected disabled value="">Select Firing Type</option>
+                    <option value="gas">Gas</option>
+                    <option value="district_heating">District Heating</option>
+                    <option value="oil">Oil</option>
+                    <option value="electricity">Electricity</option>
+                    <option value="natural_gas_light">Natural Gas Light</option>
+                </select>
+            </div>
+
+            <!-- Newly Constructed -->
+            <div class="mb-3">
+                <label class="form-label">Newly Constructed</label>
+                <select class="form-control" name="newlyConst" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+
+            <!-- Year Constructed -->
+            <div class="mb-3">
+                <label class="form-label">Year Constructed</label>
+                <input class="form-control" type="number" name="yearConstructed" min="1800" max="2025" required />
+            </div>
+
+            <!-- Year Constructed Range -->
+            <div class="mb-3">
+                <label class="form-label">Year Constructed Range</label>
+                <input class="form-control" type="number" name="yearConstructedRange" min="1" max="9" required />
+            </div>
+
+            <!-- Condition -->
+            <div class="mb-3">
+                <label class="form-label">Condition</label>
+                <select class="form-control" name="condition" required>
+                    <option class="placeholder" selected disabled value="">Select Condition</option>
+                    <option value="well_kept">Well Kept</option>
+                    <option value="refurbished">Refurbished</option>
+                    <option value="first_time_use">First Time Use</option>
+                    <option value="fully_renovated">Fully Renovated</option>
+                    <option value="mint_condition">Mint Condition</option>
+                    <option value="first_time_use_after_refurbishment">First Time Use After Refurbishment</option>
+                    <option value="modernized">Modernized</option>
+                    <option value="need_of_renovation">Need Of Renovation</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                <input class="btn" type="submit" value="Predict Rent" />
+            </div>
+        </form>
+
+        <div class="prediction">
+            <h2>The predicted rent is: €{{ results }}</h2>
+        </div>
+    </div>
+</body>
+</html>

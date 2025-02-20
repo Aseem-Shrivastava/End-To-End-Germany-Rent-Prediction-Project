@@ -56,6 +56,11 @@ class HyperParameterTuned_ModelBuilder(ModelBuilder):
         y_train: pd.Series,
         y_test: pd.Series,
     ):
+        X_train = X_train.to_numpy()
+        X_test = X_test.to_numpy()
+        y_train = y_train.to_numpy()
+        y_test = y_test.to_numpy()
+
         # Train and evaluate different models with cross-validation
         logger.info("Selecting model based on cross_val_score...")
         models = {
