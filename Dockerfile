@@ -10,7 +10,7 @@ COPY . /app/
 RUN apt update -y && apt install -y awscli curl
 
 # Install Miniconda to manage dependencies from environment.yml
-RUN curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh -o miniconda.sh && \
+RUN curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh && \
     bash miniconda.sh -b -p /opt/conda && \
     rm miniconda.sh
 
