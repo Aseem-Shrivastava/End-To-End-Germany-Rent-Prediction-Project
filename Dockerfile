@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64 python:3.10-slim-bookworm
+FROM --platform=linux/amd64 python:3.10-slim-buster
 
 # Set working directory
 WORKDIR /app
