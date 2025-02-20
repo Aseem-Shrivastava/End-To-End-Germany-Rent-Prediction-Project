@@ -4,7 +4,7 @@ This is an end-to-end machine learning project designed to predict apartment ren
 
 Key Features:
 1.	In-depth Data Exploration & Analysis:
-	•	Comprehensive analysis of the dataset, uncovering key insights about apartment rent trends in Germany.
+	•	Comprehensive analysis of the dataset, uncovering key insights about apartment rent trends in Germany. 
 	•	Visualization of relationships between various features (e.g., location, size, amenities) and rent prices.
 2.	Structured Data Processing:
 	•	Implementation of robust data preprocessing techniques, including cleaning, encoding, and scaling, adhering to modular coding principles.
