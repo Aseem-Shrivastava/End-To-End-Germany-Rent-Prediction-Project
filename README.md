@@ -1,12 +1,23 @@
-# Germany Apartment Rent Prediction
+# Germany Apartment Rent Prediction Machine Learning Project
 
-Machine learning model to predict apartment rents in Germany.
+This is an end-to-end machine learning project designed to predict apartment rents in Germany. The model utilizes various data science techniques, including data exploration, feature engineering, model training, and deployment, to deliver accurate predictions of rental prices.
 
-Highlights:
-1. Thorough data exploration and insights
-2. Structured data processing following modular coding principles
-3. Integration of MLOps practices (Process logging, training and testing pipelines, experiment tracking with MLflow)
-4. Deployment using simple Flask application
+Key Features:
+1.	In-depth Data Exploration & Analysis:
+	•	Comprehensive analysis of the dataset, uncovering key insights about apartment rent trends in Germany.
+	•	Visualization of relationships between various features (e.g., location, size, amenities) and rent prices.
+2.	Structured Data Processing:
+	•	Implementation of robust data preprocessing techniques, including cleaning, encoding, and scaling, adhering to modular coding principles.
+	•	Clean, well-documented code with reusable components for future scalability.
+3.	MLOps Practices Integration:
+	•	Process logging for better transparency and traceability of each step in the pipeline.
+	•	Efficient training and testing pipelines for streamlined model evaluation.
+	•	Experiment tracking and model management using MLflow, ensuring reproducibility and easier experimentation.
+4.	CI/CD Pipeline with GitHub Actions:
+	•	Automated continuous integration and deployment pipeline using GitHub Actions to ensure code quality and streamline the development process.
+5.	Deployment on AWS EC2:
+	•	Simple Flask application deployed on an AWS EC2 instance to serve the model for real-time predictions.
+	•	Dockerized environment for easy scalability and seamless integration with cloud infrastructure.
 
 
 ## Project Organization
@@ -59,6 +70,7 @@ Highlights:
 │   └── index.html                                    
 │
 ├── app.py                                          <- Simple Flask application that allows users to predict apartment rent for custom data
+├── Dockerfile                                      <- Docker file 
 ├── environment.yml                                 <- Environment file for reproducing the analysis environment
 ├── Makefile                                        <- Makefile with convenience commands like `make requirements`
 ├── pyproject.toml                                  <- Project configuration file with package metadata for 
